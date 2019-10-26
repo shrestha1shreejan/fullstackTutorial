@@ -1,5 +1,5 @@
-﻿using DataLibrary.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using ModelLayer;
 
 namespace DataLibrary
 {
@@ -13,7 +13,7 @@ namespace DataLibrary
 
         #region Properties
 
-        public DbSet<Value> Values { get; set; }
+        public DbSet<User> Users { get; set; }
 
         #endregion
     }
