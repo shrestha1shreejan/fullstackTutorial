@@ -12,6 +12,7 @@
 bin
 obj
 *.db
+appsettings.json
 
 # dependencies
 /node_modules
