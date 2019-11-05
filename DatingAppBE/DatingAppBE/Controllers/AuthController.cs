@@ -57,11 +57,12 @@ namespace DatingAppBE.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto, [FromServices] IAuthRepository authRepository)
         {
+            throw new Exception("Test");
             var userFromRepo = await authRepository.Login(userForLoginDto.username.ToLower(), userForLoginDto.password);
 
             if (userFromRepo == null)
             {
-                Unauthorized();
+                return Unauthorized();
             }
 
             #region JWT Auth
