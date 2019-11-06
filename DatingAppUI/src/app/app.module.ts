@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -22,6 +23,7 @@ import { RegisterComponent } from './register/register.component';
    imports: [
       BrowserModule,
       HttpClientModule,
+      BsDropdownModule.forRoot(),
       FormsModule,
       AppRoutingModule
    ],
