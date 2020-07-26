@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace ModelLayer
 {
-    public class User
+    public class Test
     {
-        public int Id { get; set; }
+        [JsonProperty(PropertyName = "Username")]
+        [Key]
         public string Username { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
@@ -22,5 +25,6 @@ namespace ModelLayer
         public string City { get; set; }
         public string Country { get; set; }
         public ICollection<Photo> Photos { get; set; }
+
     }
 }

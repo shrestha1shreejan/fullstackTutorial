@@ -4,7 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using BusinessLayer;
+using BusinessLayer.UserOperation;
 using DataLibrary;
 using DatingAppBE.Extension;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -36,7 +38,10 @@ namespace DatingAppBE
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddJsonOptions(opt => {
+                    opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                });
 
             // EF setup
             services.AddDbContext<DataContext>(options =>
@@ -71,6 +76,9 @@ namespace DatingAppBE
                     ValidateAudience = false
                 };
             });
+
+            // Automapper
+            services.AddAutoMapper(typeof(UserRepository).Assembly);
 
         }
 

@@ -14,7 +14,11 @@ namespace DataLibrary
         #region Properties
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Photo> Photos { get; set; }
 
         #endregion
+
     }
+
+    
 }
